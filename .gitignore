@@ -1,0 +1,28 @@
+# Ambient e Python
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Checkpoints e Pesos do Modelo (Arquivos grandes / pesados)
+checkpoints/*.pt
+checkpoints/*.pth
+checkpoints/*.ckpt
+
+# Outputs de testes e execuções
+outputs/*
+!outputs/.gitkeep
+
+# Datasets pesados / locais (descomente se não quiser subir os dados brutos)
+# data/raw/*.txt
+
+# IDEs e Editores
+.vscode/
+.idea/
+*.swp
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
