@@ -16,7 +16,7 @@ outputs/*
 !outputs/.gitkeep
 
 # Datasets pesados / locais (descomente se não quiser subir os dados brutos)
-# data/raw/*.txt
+data/raw/*.txt
 
 # IDEs e Editores
 .vscode/
