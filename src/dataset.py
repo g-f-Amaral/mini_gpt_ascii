@@ -1,7 +1,6 @@
 import torch
 import os
-from typing import Tuple
-from scr.config import GPTConfig
+from src.config import GPTConfig
 
 class charTokenizer:
     "Tokenizador Character-Level"
@@ -35,7 +34,7 @@ class asciiDataset:
         self.config.vocab_size = self.tokenizer.vocab_size
 
         print(f"Dataset carregado: {len(raw_text):,} caracteres")
-        print(f"Tamanho do vocalulario (caracteres unicos): {self.vocab_size}")
+        print(f"Tamanho do vocalulario (caracteres unicos): {self.tokenizer.vocab_size}")
 
         data_tensor = torch.tensor(self.tokenizer.encode(raw_text), dtype=torch.long)
 

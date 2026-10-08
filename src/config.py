@@ -29,7 +29,7 @@ class GPTConfig:
     grad_clip: float = 1.0
 
     # Caminhos e Diretórios
-    data_path: str = str(PROJECT_ROOT / "data" / "raw" / "ascoo_dataset.txt")
+    data_path: str = str(PROJECT_ROOT / "data" / "raw" / "ascii_dataset.txt")
     checkpoint: str = str(PROJECT_ROOT / "checkpoints")
     best_model_path: str = str(PROJECT_ROOT / "checkpoints" / "best_model.pt")
     last_model_path: str = str(PROJECT_ROOT / "checkpoints" / "last_model.pt")
