@@ -4,9 +4,9 @@ import torch.optim as optim
 from tqdm import tqdm 
 
 from src.config import GPTConfig
-from src.dataset import ASCIIDataset
-from src.model import MiniGPT
-from src.utils import save_checkpoint, load_checkpoint
+from src.dataset import asciiDataset
+from src.model import miniGPT
+from src.utils import saveCheckpoint, loadCheckpoint
 
 
 # Validation Loss
@@ -34,9 +34,9 @@ def train():
     device = config.device
     print(f"[*] Iniciando processo de treinamento usando: {device.upper()}")
 
-    dataset = ASCIIDataset(config)
+    dataset = asciiDataset(config)
     
-    model = MiniGPT(config)
+    model = miniGPT(config)
     model.to(device)
 
     use_amp = (device == 'cuda')
@@ -55,7 +55,7 @@ def train():
     start_iter, best_val_loss = 0, float('inf')
     if os.path.exists(config.last_model_path):
         print(f"[*] Tentando carregar checkpoint recente em {config.last_model_path}...")
-        start_iter, best_val_loss = load_checkpoint(config.last_model_path, model, optimizer, device)
+        start_iter, best_val_loss = loadCheckpoint(config.last_model_path, model, optimizer, device)
 
    
     # Loop de Treinamento 
@@ -75,7 +75,7 @@ def train():
                 if is_best:
                     best_val_loss = losses['val']
                     
-                save_checkpoint(model, optimizer, iter_num, best_val_loss, config, is_best)
+                saveCheckpoint(model, optimizer, iter_num, best_val_loss, config, is_best)
 
             X, Y = dataset.get_batch('train')
 
